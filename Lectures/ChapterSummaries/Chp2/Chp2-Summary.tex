@@ -86,7 +86,7 @@
 \setcounter{section}{2}
 \section*{Chapter 2 -- The purpose}
 
-The Laplacian operator, often denoted by either $\Delta$ or $\nabla^2$, when applied to a function of $n$ spatial variables $x_1, \ldots, x_n$ gives the sum of the (non-mixed) second-order derivatives.
+The Laplacian operator, often denoted by $\Delta$ or $\nabla^2$ (or sometimes represented in divergence form $\nabla\cdot\nabla$), when applied to a function of $n$ spatial variables $x_1, \ldots, x_n$ gives the sum of the (non-mixed) second-order derivatives.
 This operator plays a fundamental role in many PDEs and typically is used to represent diffusion.
 PDEs of models for which diffusion is a dominant characteristic describing the evolution of the state variable often (but not always) have very smooth solutions (or at least they are generally significantly  smoother than the data). 
 
@@ -110,7 +110,7 @@ Sections 2.3 and 2.4 are probably the ``meatiest'' parts of this material and st
 
 \subsection{Poisson's Equation in One Dimension}
 
-This section utilizes some basic calculus concepts\footnote{The Fundamental Theorem of Calculus and integration by parts play crucial roles. You may want to review these prior to reading this section of the book if those are not crystal clear.} to prove that the solution to the two-point BVP exists and is unique under the assumption that $f$ is continuous\footnote{This assumptions can be weakened, but that is a topic best left for a more advanced course.} and integrable on $\Omega$.
+This section utilizes some basic calculus concepts\footnote{The Fundamental Theorem of Calculus and integration by parts play crucial roles. You may want to review these prior to reading this section of the book if those are not crystal clear.} to prove that the solution to the two-point BVP exists and is unique under the assumption that $f$ is continuous\footnote{This assumption can be weakened, but that is a topic best left for a more advanced course.} and integrable on $\Omega$.
 The end result is a rather simple formula (Eq.~(2.7) in the text) that will give the solution to the two-point BVP for any $f$ satisfying the assumptions.
 Students should use (2.7) to solve Exercise 2.2, which we will go over in class. 
 Students should also try repeating the process used to derive (2.7) to solve Exercise 2.4 which simply allows for the boundary values to be non-zero. 
@@ -120,7 +120,7 @@ Some properties of the Green's function for this particular BVP are provided in 
 Deriving Green's functions can be rather difficult and without much to go on in the text, it may seem rather impossible to try and solve a problem requiring the determination of a Green's function (e.g., Exercises 2.3 and 2.8).
 For now, suffice it to say that we essentially replace $f$ with the Dirac delta function $\delta(x-y)$ (which is of course not a function) and do ``math'' to solve the BVP for $G(x,y)$. 
 The ``math'' can be made entirely rigorous of course, but it requires a theory that is typically developed after taking courses in measure theory and functional analysis, which I highly encourage you to take.
-In particular, we have to generalize our notion of derivatives to apply to things called {\em distributions}. 
+In particular, we have to generalize our notion of derivatives to apply to things called {\em distributions}\footnote{These are sometimes called generalized functions, but distributions is more common. These should not be confused with probability distributions, which involve a separate theory (but also require measure theory to understand rigorously).}. 
 
 As far as we are concerned, just assume that we define derivatives in a more piecewise sense so that the derivative of $\abs{x}$ on $[-1,1]$ does in fact exist as the function that is $-1$ on $[-1,0)$ and is $1$ on $(0,1]$ (it may be helpful to draw some pictures here).
 The value of the derivative at $0$ does not exist in a classical sense, and you may just assign it arbitrarily to be either $-1$ or $1$. 
@@ -133,7 +133,7 @@ A topic that is often studied in great detail in more advanced PDEs courses is t
 Regularity simply means smoothness.
 It is first shown that a solution $u$ has at least two more derivatives than $f$, so it is ``smoother'' than $f$.
 This is perhaps not surprising since if $u$ is a solution to the two-point BVP, we already know it can be differentiated twice, and this second-order derivative is equal to the continuous $f$ otherwise $u$ could not have satisfied the PDE. 
-We often find it convenient to study questions about regularity by taking the viewpoint that the differential operator defines a type of mapping from data $f$ to solutions $u$. 
+We often find it convenient to study questions about regularity by taking the viewpoint that the differential operator defines a type of mapping between function spaces where the inverse map is from data $f$ to solutions $u$. 
 
 Next, it is shown that if $f$ is nonnegative, then so is $u$ (this is referred to as monotonicity), and the proof is simple using the compact representation of the solution in (2.9).
 Specifically, we have that $G(x,y)\geq 0$ for all $x,y\in[0,1]$, so if we also have $f\geq 0$ on $[0,1]$, then, by (2.9), we see that for each $x\in[0,1]$, $u(x)$ is defined by an integral of a nonnegative function, which is nonnegative by results from calculus. 
@@ -161,13 +161,13 @@ We will go over the solutions to Exercises 2.12 and 2.13 in class.
 
 We now convert the differential equation into a system of algebraic equations using a simple centered finite difference scheme that is easily derived from Taylor series.
 The basic idea explored here is to lay down a uniform regular grid of points that discretizes $\Omega\cup\partial\Omega$.
-Non-uniform grids can also be used, but there is not really much need to in the case considered here.
+Non-uniform grids can also be used, but there is no need to do so in the case considered here.
 In higher-dimensional problems with more irregularly shaped spatial domains or for other PDEs with solutions that exhibit certain behaviors (e.g., having interior or boundary layers), we will typically want to use a non-uniform grid, but these are more advanced topics that we omit here.
 
 The text dives into some rather technical details involving the direct solution of the resulting algebraic system using Gaussian elimination, which culminates in Algorithm 2.1. 
 Conditions are then provided for which Algorithm 2.1 is guaranteed to give a solution.
 However, these conditions really only apply in a world where infinite precision arithmetic exists (i.e., not on computers). 
-
+Gaussian elimination is one of those things that is useful to do by hand a few times\footnote{Usually in an undergraduate linear algebra course although you are probably familiar with the basic mechanisms of doing Gaussian elimination from solving simultaneous equations in a rudimentary algebra course.} (and it is arguably instructive to code up the algorithm for yourself), but, in practice, we use more efficient solvers that are available in standard math/linear algebra libraries. 
 
 
 
