@@ -156,10 +156,10 @@ In part (c) of that exercise, we saw that the linear combination of solutions to
 
 In this section, we see that if we can write the initial data as a linear combination of the spatial basis functions (e.g., as either (3.21) or (3.25)), then the solution to the heat equation is immediately given also in terms of a linear combination that is easily written (e.g., as either (3.22) or (3.26), respectively). 
 While this is wonderfully simple, it all rests upon the idea that we can somehow write the initial data in a special way.
-Example 3.2 shows how why we may require the linear combination to involve an infinite number of terms for ``equality'' to hold.
+Example 3.2 shows why we may require the linear combination to involve an infinite number of terms for ``equality'' to hold.
 
 We say ``equality'' rather loosely here. 
-Check out the Python notebook on this chapter that recreates Figure 3.3 for various values of $N$ that also increases the resolution of the mesh used for discretizing $[0,1]$ (you may come to the conclusion that Figure 3.3 is at worst a lie and at best misleading). 
+Check out the Python notebook on this chapter that recreates Figure 3.3 for various values of $N$ that also increases the resolution of the mesh used for discretizing $[0,1]$ (you may come to the conclusion that Figure 3.3 in the text is at worst a lie and at best misleading). 
 As $N$ increases, the magnitude of the oscillations have a tendency to increase towards $x=0$ and $x=1$ while they decrease towards the middle of the domain\footnote{Of course, the overall amplitude of the oscillations stays bounded.}. 
 This is known as Gibbs phenomena.
 Also, every single partial sum has the property that it defines a function equal to $0$ at both $x=0$ and $x=1$.
@@ -167,8 +167,6 @@ So, how on earth can such a sequence of partial sums converge to a function that
 The answer is that it cannot!
 At least, it cannot in the pointwise sense, and most certainly cannot in the $\sup$-norm commonly used on $C([a,b])$ and its subspaces.
 The convergence is actually in $L^2$ (in later chapters, the authors choose to refer to this type of convergence as convergence in {\em mean square}). 
-Basically, if we integrate the square of the difference of the limit function and the partial sums, then this is a measure of error that goes to zero as we let the number of terms used in the partial sums increase to infinity. 
-The main point is this: take measure theory and functional analysis. e in {\em mean square}). 
 Basically, if we integrate the square of the difference of the limit function and the partial sums, then this is a measure of error that goes to zero as we let the number of terms used in the partial sums increase to infinity. 
 The main point is this: take measure theory and functional analysis. 
 
