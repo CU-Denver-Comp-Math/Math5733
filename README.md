@@ -1,4 +1,7 @@
-# Math 5733 (and 4733)
+# This material is intended for MATH 4733/5733: Partial Differential Equations
 ---
 
-An introduction to PDEs.
+## Working title of this material
+---
+
+An Interactive Introduction to Partial Differential Equations with Python
